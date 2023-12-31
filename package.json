@@ -23,6 +23,9 @@
   },
   "homepage": "https://github.com/BbIXOD/epic-parser#readme",
   "dependencies": {
+    "@types/async": "^3.2.24",
+    "async": "^3.2.5",
+    "commander": "^11.1.0",
     "esbuild": "^0.19.11",
     "esbuild-node-externals": "^1.12.0",
     "typescript": "^5.3.3"
