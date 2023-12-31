@@ -1,0 +1,33 @@
+{
+  "name": "epic-parser",
+  "version": "1.0.0",
+  "description": "Fast file parsing program (and maybe more)",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BbIXOD/epic-parser.git"
+  },
+  "keywords": [
+    "parser",
+    "js",
+    "ts"
+  ],
+  "author": "Паукач",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BbIXOD/epic-parser/issues"
+  },
+  "homepage": "https://github.com/BbIXOD/epic-parser#readme",
+  "dependencies": {
+    "esbuild": "^0.19.11",
+    "esbuild-node-externals": "^1.12.0",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6"
+  }
+}
