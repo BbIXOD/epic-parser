@@ -1,6 +1,6 @@
-export class fileAccumulator {
-  values: Set<string>
-  quantities: Map<string, number>
+export default class Parser {
+  private values: Set<string>
+  private quantities: Map<string, number>
 
   constructor () {
     this.values = new Set()
@@ -15,6 +15,14 @@ export class fileAccumulator {
         this.values.add(value)
         this.quantities.set(value, 1)
       }
+  }
+
+  getValues () {
+    return this.values
+  }
+
+  getQuantities () {
+    return this.quantities
   }
 
   getQuantityOf (value: string) {

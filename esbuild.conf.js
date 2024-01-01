@@ -4,14 +4,15 @@ import { build } from "esbuild";
 try {
 
   build({
-    entryPoint: "src/app.ts",
+    entryPoints: ["src/app.ts"],
     bundle: true,
-    minify: true,
+    //minify: true,
     platform: "node",
-    sourcemap: true,
+    target: "es2022",
+    format: "esm",
     tsconfig: "tsconfig.json",
     plugins: [nodeExternalsPlugin()],
-    outdir: "dist",
+    outfile: "app.js",
   })
 }
 catch (err) {
