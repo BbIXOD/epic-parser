@@ -1,3 +1,7 @@
+#dev things
+node_modules
+app.js
+
 # Logs
 logs
 *.log

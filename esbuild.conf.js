@@ -6,7 +6,7 @@ try {
   build({
     entryPoints: ["src/app.ts"],
     bundle: true,
-    //minify: true,
+    minify: true,
     platform: "node",
     target: "es2022",
     format: "esm",

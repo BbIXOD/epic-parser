@@ -1,6 +1,6 @@
 import { createReadStream, statSync } from 'fs'
 
-export async function* readStream(path: string, splitter: string | RegExp = '\n'): AsyncGenerator<string> {
+export async function* readStream(path: string, splitter: string | RegExp | undefined): AsyncGenerator<string> {
   const stream = createReadStream(path)
   let last = ''
 
@@ -17,7 +17,7 @@ export async function* readStream(path: string, splitter: string | RegExp = '\n'
   if (last !== '') yield last
 }
 
-export async function* readStreamWithPersents(path: string, splitter: string | RegExp = '\n'): AsyncGenerator<{ persent: number, content: string }> {
+export async function* streamWithPersents( path: string, splitter: string | RegExp | undefined = '\n'): AsyncGenerator<{ persent: number, content: string }> {
   const stream = readStream(path, splitter)
   const streamSize = statSync(path).size
   let readSize = 0

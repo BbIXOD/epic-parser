@@ -26,16 +26,17 @@ export default class Parser {
   }
 
   getQuantityOf (value: string) {
-    return this.quantities.has(value) ? this.quantities.get(value) : 0
+    console.log(value)
+    console.log(this.quantities.get(value))
+    return this.values.has(value) ? this.quantities.get(value) : 0
   }
 
   getByQuantity (min: number, max: number) {
     const result: string[] = []
     for (const [key, value] of this.quantities) {
-      if (value >= min && value <= max) {
-        result.push(key)
-      }
+      if (value >= min && value <= max) result.push(key)
     }
+
     return result
   }
 }
