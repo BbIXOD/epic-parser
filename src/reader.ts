@@ -2,19 +2,28 @@ import { createReadStream, statSync } from 'fs'
 
 export async function* readStream(path: string, splitter: string | RegExp | undefined): AsyncGenerator<string> {
   const stream = createReadStream(path)
-  let last = ''
+  try {
+    let last = ''
 
-  for await (const chunk of stream) {
-    const splited = (last + chunk).split(splitter)
+    for await (const chunk of stream) {
+      const splited = (last + chunk).split(splitter)
 
-    for (let i = 0; i < splited.length - 1; i++) {
-      yield splited[i]
+      for (let i = 0; i < splited.length - 1; i++) {
+        yield splited[i]
+      }
+
+      last = splited[splited.length - 1]
     }
 
-    last = splited[splited.length - 1]
+    if (last !== '') yield last
+  }
+  catch (error) {
+    console.error(error)
+  }
+  finally {
+    stream.close()
   }
 
-  if (last !== '') yield last
 }
 
 export async function* streamWithPersents( path: string, splitter: string | RegExp | undefined = '\n'): AsyncGenerator<{ persent: number, content: string }> {
